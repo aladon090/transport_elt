@@ -1,0 +1,11 @@
+my_new_project:          # matches your dbt_project.yml name
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: taxi-transport-analytics       # your GCP project ID
+      dataset: new_york_analytic                     # dataset to store dbt models
+      keyfile: /workspaces/transport_elt/taxi-transport-analytics-fbfa6653d305.json
+      threads: 4
+      location: US
