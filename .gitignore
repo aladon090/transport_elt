@@ -6,3 +6,6 @@ combined_data/
 
 # ignore Parquet outputs
 data_parquet/
+
+
+*.json
