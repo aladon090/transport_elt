@@ -1,0 +1,8 @@
+# ignore virtual env
+.venv/
+.vscode
+# ignore raw CSV data
+combined_data/
+
+# ignore Parquet outputs
+data_parquet/
