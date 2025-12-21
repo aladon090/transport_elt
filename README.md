@@ -135,7 +135,8 @@ Once the pipeline is running, you can uncover insights like:
 
 **Dashboard Example:**
 ![Dashboard Example](https://github.com/user-attachments/assets/40aca608-a63e-4b77-83ca-5935c1cc166f)
-*Note: You can replace this with your own dashboard screenshot*
+
+
 
 ---
 
