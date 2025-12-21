@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: stg_yellow_taxi
+    description: "Staging model for yellow taxi trips. Cleans raw data and standardizes column names."
+    columns:
+      - name: vendor_id
+        description: "Code indicating the TPEP provider."
+      - name: pickup_datetime
+        description: "Timestamp when the passenger was picked up."
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: "Timestamp when the passenger was dropped off."
+      - name: store_and_forward_flag
+        description: "Whether the trip record was held in the vehicle before sending."
+      - name: rate_code_id
+        description: "Final rate code in effect at the end of the trip."
+      - name: pickup_location_id
+        description: "Taxi zone ID where the trip began."
+      - name: dropoff_location_id
+        description: "Taxi zone ID where the trip ended."
+      - name: passenger_count
+        tests:
+          - not_null
+      - name: trip_distance_miles
+        tests:
+          - not_null
+      - name: fare_amount_usd
+      - name: extra_charges_usd
+      - name: mta_tax_usd
+      - name: tip_amount_usd
+      - name: tolls_amount_usd
+      - name: improvement_surcharge_usd
+      - name: total_amount_usd
+        tests:
+          - not_null
+      - name: payment_type_code
+      - name: congestion_surcharge_usd
+
+  - name: stg_green_taxi
+    description: "Staging model for green taxi trips. Cleans raw data and standardizes column names."
+    columns:
+      - name: vendor_id
+      - name: pickup_datetime
+        tests:
+          - not_null
+      - name: dropoff_datetime
+      - name: store_and_forward_flag
+      - name: rate_code_id
+      - name: pickup_location_id
+      - name: dropoff_location_id
+      - name: passenger_count
+      - name: trip_distance_miles
+      - name: fare_amount_usd
+      - name: extra_charges_usd
+      - name: mta_tax_usd
+      - name: tip_amount_usd
+      - name: tolls_amount_usd
+      - name: ehail_fee_usd
+      - name: improvement_surcharge_usd
+      - name: total_amount_usd
+      - name: payment_type_code
+      - name: trip_type_code
+      - name: congestion_surcharge_usd
+
+  - name: stg_taxi_zone_lookup
+    description: "Reference table of NYC taxi zones with borough and service zone."
+    columns:
+      - name: location_id
+        tests:
+          - unique
+          - not_null
+      - name: borough
+      - name: zone
+      - name: service_zone
